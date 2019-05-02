@@ -133,6 +133,8 @@ total_dec = float(sum(dec))
 
 print(total_jan,total_feb,total_mar,total_apr,total_may,total_jun,total_jul,total_aug,total_sep,total_oct,total_nov,total_dec)
 
+# Begbroke demand
+
 plt.figure()
 monthlygeneration = [total_jan,total_feb,total_mar,total_apr,total_may,total_jun,total_jul,total_aug,total_sep,total_oct,total_nov,total_dec]
 plt.plot(monthlygeneration,label='Generation')
