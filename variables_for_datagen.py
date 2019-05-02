@@ -40,8 +40,9 @@ plt.plot(x, stats.norm.pdf(x, mu, sigma), label = sigma)
 plt.title('Length of Stay in P&R')
 plt.ylabel('Probability')
 plt.xlabel('Time Parked (Hours)')
+plt.xlim(xmin=0)
 plt.legend()
-#plt.savefig('Report/lengthofstay.png', dpi = 1000)
+#plt.savefig('Report/Pics_NK/lengthofstay.png', dpi = 1000)
 
 'Random sample from distribution'
 
@@ -57,7 +58,7 @@ if time > 4:
 else:
     ctype = 1 #fast charging takes 4 hours to charge from flat to full
 
-
+print(ctype)
 #%% EV BATTERY CAPACITY
 
 'Frequency of electric car battery capacities'
@@ -99,9 +100,9 @@ plt.legend(title='Distribution Type')
 shape, scale = 5.66,7
 
 # Print 100 samples to check random nature
-for i in range (0,100):
-    s = np.random.gamma(shape, scale)
-    print(s)
+#for i in range (0,100):
+#    s = np.random.gamma(shape, scale)
+#    print(s)
 
 # Plot distribution
 plt.figure()
@@ -114,13 +115,14 @@ plt.plot(bins, y, linewidth=2, color='r')
 plt.title('Electric Car Battery Capacity')
 plt.xlabel('Capacity (kWh)')
 plt.ylabel('Probability')
+plt.xlim(xmin=0)
 #plt.legend()
-#plt.savefig('Report/capacity_final.png',dpi = 1000)
+plt.savefig('Report/Pics_NK/capacity_final.png',dpi = 1000)
 
 'Random sample'
 
 capacity = np.random.gamma(shape, scale)
-
+print(capacity)
 #%% SOC on arrival
 
 'Use EV battery capacity distribution - did not work'
@@ -134,19 +136,21 @@ plt.figure()
 x = np.linspace(beta.ppf(0.01, a, b),
                 beta.ppf(0.99, a, b), 100)
 plt.plot(x, beta.pdf(x, a, b),
-       'r-', lw=5, alpha=0.6, label='beta pdf')
+       'r-', lw=5, alpha=0.6)
 plt.title('State of Charge')
 plt.xlabel('Proportion of full charge on arrival (i.e. SOC)')
-plt.ylabel('Probability')
-#plt.savefig('Report/soc.png',dpi=1000)
+plt.ylabel('Frequency')
+plt.xlim(xmin=0)
+plt.ylim(ymin=0)
+plt.savefig('Report/Pics_NK/soc.jpg',dpi=1000)
 
 # Print 100 samples to check random nature
-for i in range (0,100):
-    SOC = np.random.beta(a,b)
-    print(SOC)
+#for i in range (0,100):
+#    SOC = np.random.beta(a,b)
+#    print(SOC)
 
 SOC = np.random.beta(a,b)
-
+print(SOC)
 #%% Arrival time
 
 'Import and plot arrival data from Pear Tree csv'
